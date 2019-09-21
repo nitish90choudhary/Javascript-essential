@@ -138,3 +138,9 @@ var large = giveMeEms(24);
 console.log("Small size", small());
 console.log("Medium size", medium());
 console.log("Large size", large());
+
+/**
+ * Learning document.querySelector
+ */
+document.querySelector("#firstName").value ="Nitish Choudhary";
+document.querySelector("div label").innerHTML = "My First NAme";
