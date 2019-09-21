@@ -17,6 +17,9 @@ var timer = [0, 0, 0, 0];
 var interval;
 var timerRunning = false;
 var errorCount = 0;
+var strokesPerSecValue = 0;
+var scoreInfo = "";
+var scoreMatrix = [];
 // Add leading zero to numbers 9 or below (purely for aesthetics):
 function leadingZero(time) {
     if (time <= 9) {
@@ -44,6 +47,8 @@ function spellCheck() {
         clearInterval(interval);
         timerRunning = false;
         testWrapper.style.borderColor = "#429890";
+        //Set highscore here
+        highScore();
     } else {
         if (textEntered == originTextMatch)
             testWrapper.style.borderColor = "#65CCf3";
@@ -90,7 +95,7 @@ function strokesPerSec() {
     if (timer[1] <= 0) {
         accuracyText.innerHTML = "0";
     } else {
-        let strokesPerSecValue = Math.floor(testArea.value.length / (timer[3] / 100));
+        strokesPerSecValue = Math.floor(testArea.value.length / (timer[3] / 100));
         accuracyText.innerHTML = strokesPerSecValue;
     }
 
@@ -109,15 +114,22 @@ function selectChapter() {
         originText.innerHTML = "Please select any chapter";
     console.log("Chapter changed");
 }
+//record highscore
+function highScore() {
+    const tableBody = document.querySelector("#score-board tbody");
+    const username = document.querySelector("#userName");
+    const userScore = ((strokesPerSecValue * 60) - errorCount) * 10;
+    const CPM = strokesPerSecValue * 60;
+    scoreMatrix.push(userScore);
+    console.log(username.value)
+    scoreInfo += "<tr><td class='HighScoresTable-Column'>1</td><td class='HighScoresTable-Column'>" + username.value + "</td><td>" +
+        CPM + " CPM</td><td>" + userScore + "</td></tr>";
 
+    tableBody.outerHTML = scoreInfo;
+}
 // Event listeners for keyboard input and the reset button:
 testArea.addEventListener("keypress", start, false);
 testArea.addEventListener("keyup", spellCheck, false);
 testArea.addEventListener("keypress", strokesPerSec, false);
 resetButton.addEventListener("click", reset, false);
 chapterSelection.addEventListener("change", selectChapter, false);
-
-//TODOs
-
-// Array of different text
-// Highscore board
