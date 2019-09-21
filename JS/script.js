@@ -9,9 +9,9 @@ const ALERT = document.querySelector("#booking-alert");
 CTA.classList.remove("hide");
 ALERT.classList.add("hide");
 
-function reveal(e) {
+function reveal(e, current) {
     e.preventDefault();
-    CTA.classList.toggle("hide");
+    current.innerHTML == "Book Now!" ? CTA.innerHTML = "Ooops!" : CTA.innerHTML = "Book Now!";
     ALERT.classList.toggle("hide");
 }
 
@@ -23,7 +23,14 @@ function reveal(e) {
 //Multiple event can be handled by using event listner
 //event-bind to function
 
-CTA.addEventListener("click", reveal, false); //true when using bubbling
+//CTA.addEventListener("click", reveal, false); //true when using bubbling
 CTA.addEventListener("click", function () {
     console.log("I am clicked");
+}, false);
+
+//Passing arguments to function , passed to event listeners
+// make anonymous functions and pass args from there
+
+CTA.addEventListener("click", function (e) {
+    reveal(e, this);
 }, false);
