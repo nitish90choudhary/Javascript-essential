@@ -1,0 +1,29 @@
+//Browser level events- load, error, online/offline, window resize etc.
+//DOM level events - Content interaction- click, focus, submit, blur,
+//Media events -play
+//progress events
+//CSS transition events
+const CTA = document.querySelector(".cta a");
+const ALERT = document.querySelector("#booking-alert");
+
+CTA.classList.remove("hide");
+ALERT.classList.add("hide");
+
+function reveal(e) {
+    e.preventDefault();
+    CTA.classList.toggle("hide");
+    ALERT.classList.toggle("hide");
+}
+
+//Get the element and bind the event to it
+// this works fine when we have have one event for on element
+//CTA.onclick = reveal;
+//CTA.onclick = console.log("The button was clicked");
+
+//Multiple event can be handled by using event listner
+//event-bind to function
+
+CTA.addEventListener("click", reveal, false); //true when using bubbling
+CTA.addEventListener("click", function () {
+    console.log("I am clicked");
+}, false);
