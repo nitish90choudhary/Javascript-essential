@@ -33,3 +33,32 @@ var dogs = ["Golden Retriever", "Pug", "Schnauzer"];
 var animals = ["Whale", "Giraffe", ...cats, "Snake", ...dogs, "Coyote"];
 
 console.log(animals);
+
+//Map object that holds key,value pair
+//It maintains the insertion order
+// get(key)- to retrieve the value
+// set(key,value)- to set the value
+//
+console.log("----Map object---");
+
+var course = new Map();
+course.set('react', {
+	description: 'ui'
+});
+course.set('jest', {
+	description: 'test'
+});
+
+console.log(course);
+console.log(course.get('react'));
+
+var details = new Map([
+	[new Date(), 'today'],
+	['items', [1, 2]]
+]);
+
+console.log(details);
+
+details.forEach(function (item) {
+	console.log(item);
+});
