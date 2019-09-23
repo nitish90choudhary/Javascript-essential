@@ -88,4 +88,14 @@ for (let topic of topics) {
 }*/
 
 //#######  ES6 Functions and Objects
+console.log('#######  ES6 Functions and Objects');
+// 1. Default parameters
 
+function myactivity(name = 'Nitish', activity = 'hiking', time = 3) {
+	console.log(`Hi! ${name}, today you are going to ${activity} for ${time} hours`);
+}
+//Default parameters triggereing
+myactivity();
+
+//with arguments
+myactivity('Nikhil', 'Running', 1);
