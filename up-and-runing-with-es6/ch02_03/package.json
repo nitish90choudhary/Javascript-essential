@@ -20,6 +20,9 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "browser-polyfill": "^3.20.2",
     "webpack-cli": "^3.3.9"
   }
 }
