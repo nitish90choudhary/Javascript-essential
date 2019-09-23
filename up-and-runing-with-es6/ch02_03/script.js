@@ -165,3 +165,29 @@ var person = {
 };
 
 person.printActions();
+
+//Destructuring Assignment
+
+var [first, , , fourth] = ["Spokane", "Boston", "Los Angeles", "Seattle", "Portland"];
+console.log(first);
+console.log(fourth);
+
+var {title,price} = {
+	title: "Reuben",
+	price: 7,
+	description: "Cleveland's favourite sandwich",
+	ingredients: ['bread', 'corned beef', 'dressing', 'cheese']
+};
+console.log(title);
+console.log(price);
+
+var vacation={
+	destination:"Chile",
+	travelers:2,
+	activity:"skiing",
+	cost:4000
+};
+function vacationMarketing({destination,activity}){
+	return `Come to ${destination} and do some ${activity}`;
+}
+console.log(vacationMarketing(vacation));
