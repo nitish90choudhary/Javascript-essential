@@ -115,7 +115,7 @@ var cat = {
 	}
 };
 */
-//ES6 version of object notation
+//ES6 version of object notationgs
 
 var cat = {
 	meow(times) {
@@ -132,3 +132,36 @@ var cat = {
 cat.meow(3);
 cat.purr(4);
 cat.snore(5);
+
+//Arrow Functions 
+var studentList = students => console.log(students);
+
+studentList(['Joe', 'Cindy', 'Jeane']);
+
+//Arrow functions and this keyword
+/*
+var person = {
+	first: "Doug",
+	actions: ["bike", "ski", "surf", "hike"],
+	printActions: function () {
+		//var _this = this;
+		this.actions.forEach(function (action) {
+			var str = this.first + " likes to " + action;
+			console.log(str);
+		}.bind(this));
+	}
+};
+*/ //ES6 Arrow notation function
+
+var person = {
+	first: "Doug",
+	actions: ["bike", "ski", "surf", "hike"],
+	printActions() {
+		this.actions.forEach(action => {
+			var str = this.first + " likes to " + action;
+			console.log(str);
+		});
+	}
+};
+
+person.printActions();
