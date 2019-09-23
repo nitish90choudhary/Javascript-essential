@@ -167,12 +167,15 @@ var person = {
 person.printActions();
 
 //Destructuring Assignment
-
+console.log("####---Destructuring Assignment-----###");
 var [first, , , fourth] = ["Spokane", "Boston", "Los Angeles", "Seattle", "Portland"];
 console.log(first);
 console.log(fourth);
 
-var {title,price} = {
+var {
+	title,
+	price
+} = {
 	title: "Reuben",
 	price: 7,
 	description: "Cleveland's favourite sandwich",
@@ -181,13 +184,55 @@ var {title,price} = {
 console.log(title);
 console.log(price);
 
-var vacation={
-	destination:"Chile",
-	travelers:2,
-	activity:"skiing",
-	cost:4000
+var vacation = {
+	destination: "Chile",
+	travelers: 2,
+	activity: "skiing",
+	cost: 4000
 };
-function vacationMarketing({destination,activity}){
+
+function vacationMarketing({
+	destination,
+	activity
+}) {
 	return `Come to ${destination} and do some ${activity}`;
 }
 console.log(vacationMarketing(vacation));
+
+//Generators - new type of function which allow us to pause the
+// function in the middle of execution and resume
+// These are useful when dealing with async events, timers
+console.log("####---Generators-----###");
+
+function* director() {
+	yield "Three";
+	yield "Two";
+	yield "One";
+	yield "Action";
+}
+var action = director();
+
+console.log(action.next().value);
+console.log(action.next().value);
+console.log(action.next().value);
+console.log(action.next().value);
+console.log(action.next().value);
+
+//Example 2
+function* eachItem(arr) {
+	for (var i = 0; i < arr.length; i++) {
+		yield arr[i];
+	}
+}
+
+var letters = eachItem(['a', 'b', 'c', 'd', 'e']);
+
+var abcs = setInterval(function () {
+	var letter = letters.next();
+	if (letter.done) {
+		clearInterval(abcs);
+		console.log("Now I know my ABC's");
+	} else {
+		console.log(letter.value)
+	}
+}, 500);
