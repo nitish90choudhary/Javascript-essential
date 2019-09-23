@@ -62,3 +62,17 @@ console.log(details);
 details.forEach(function (item) {
 	console.log(item);
 });
+
+//Sets datatype- collection of value (unique)
+// add() to add values
+// has(value)- check value is present in set
+// delete(value) - delete value from the set
+console.log("----Sets object---");
+var books = new Set();
+books.add('Pride and Prejudice');
+books.add('War and Peace')
+	.add('Oliver Twist')
+	.add('Pride and Prejudice');
+
+console.log(books);
+console.log("Books Size: ", books.size);
