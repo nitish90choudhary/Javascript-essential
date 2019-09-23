@@ -38,7 +38,9 @@ console.log(animals);
 //It maintains the insertion order
 // get(key)- to retrieve the value
 // set(key,value)- to set the value
-//
+// keys() - gives list of keys
+// values()- gives list of values
+// entries() - give k,V pairs.
 console.log("----Map object---");
 
 var course = new Map();
@@ -76,3 +78,14 @@ books.add('War and Peace')
 
 console.log(books);
 console.log("Books Size: ", books.size);
+
+// For..of loop is new type of loop introduced with ES6
+console.log("---- For..of loop-------");
+//babel error
+/*var topics = ['Java', 'React', 'Angular', 'JavaScript'];
+for (let topic of topics) {
+	console.log(topic);
+}*/
+
+//#######  ES6 Functions and Objects
+
